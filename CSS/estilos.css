@@ -8,12 +8,12 @@
 }
 
 body {
-    background-color: #fff9f4; /* Fondo crema muy suave */
+    background-color: #fff9f4; 
     background-image: url('../img/CATBG.jpg');
     background-size: 100% 100%;
     background-attachment: fixed;
-    font-family: 'Quicksand', sans-serif; /* Fuente redondeada y amigable */
-    color: #5d4a44; /* Marrón oscuro suave en lugar de negro puro */
+    font-family: 'Quicksand', sans-serif; 
+    color: #5d4a44; 
 }
 
 .contenedor {
@@ -22,63 +22,65 @@ body {
     margin: 20px auto;
     background: #ffffff;
     border-radius: 30px; 
-    overflow: visible; /* <--- CAMBIA ESTO (estaba en hidden) */
+    overflow: visible; 
     box-shadow: 0 10px 30px rgba(93, 74, 68, 0.1);
     position: relative;
 }
 
-/* Estilo de Cajas Generales (Estructura Original) */
 .borde {
-    border: 1px solid #f2e5d9; /* Bordes muy sutiles */
+    border: 1px solid #ff9239; 
 }
 
 .titulo {
     padding: 20px;
     text-align: center;
-    background-color: #ffecd2; /* Color melocotón */
-    color: #e67e22; /* Naranja vibrante pero cálido */
+    background-color: #ffecd2; 
+    color: #e67e22; 
     font-weight: 700;
     font-size: 1.4em;
     letter-spacing: 1px;
     text-transform: uppercase;
 }
 
-/* --- INICIO NUEVA NAVEGACIÓN --- */
+/* --- NAVEGACIÓN --- */
 nav {
     height: 80px;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Esto mantiene el logo a la izquierda y el ingreso a la derecha */
-    background: #fff;
-    position: relative;
-    z-index: 1000;
+    justify-content: space-between;
+    background: #ff9f43; 
+    border-bottom: none; 
 }
 
-/* Y añade esto para el logo */
 .logo {
     width: 20%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    /* EL CAMBIO CLAVE: Relleno para que el gato no toque los bordes */
-    padding: 10px; /* Ajusta este valor si quieres que el gato sea más grande o más pequeño */
+    padding: 10px; 
+    border-bottom: none !important;
 }
 
 .logo img {
-    /* Mantenemos tus estilos originales */
-    width: 50px; /* O 'height: 100%;' si prefieres que se estire a lo alto */
+    width: 50px; 
     filter: sepia(0.5) saturate(2);
 }
-/* Lógica de Listas para Menú */
+
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-/* Nivel 0: Barra Horizontal */
+.navegacion {
+    width: 65%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .navegacion > ul {
     display: flex;
     justify-content: center;
@@ -86,134 +88,96 @@ nav ul {
 }
 
 nav ul li {
-    position: relative; /* Base para posicionar submenús */
+    display: flex;
+    align-items: stretch;
+    position: relative; 
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #5d4a44;
+    color: #ffffff;
     font-weight: 700;
-    padding: 15px 20px;
-    display: block;
-    transition: color 0.3s, background 0.3s;
-}
-
-nav ul li a:hover {
-    color: #ff9f43;
-}
-
-/* Mostrar submenús al pasar el mouse */
-nav ul li:hover > ul {
-    display: block !important;
-}
-
-/* --- INICIO DE LA CORRECCIÓN DE BORDES CUADRADOS --- */
-/* Nivel 1: Primer Despliegue (Hacia abajo) */
-/* 1. Ocultar todos los niveles por defecto */
-nav ul li ul {
-    display: none;
-    position: absolute;
-    background-color: #ffffff;
-    min-width: 180px;
-    z-index: 1100;
-}
-
-nav ul li:hover > ul {
-    display: block !important;
-}
-/* Forzar a que los enlaces llenen todo el ancho y no dejen huecos */
-nav ul li ul li {
-    width: 100%;
-    display: block;
-}
-
-nav ul li ul li a {
-    display: block;
-    width: 100%;
-    text-align: left;
-    padding: 12px 15px;
-    background-color: #ffffff; /* Asegura el fondo en cada item */
-}
-
-/* Ajuste específico para que el Nivel 2 no se solape con el Nivel 1 */
-nav ul li ul li ul {
-    top: 0;
-    left: 100%; 
-    margin-left: 0; 
-    display: none;
-    position: absolute;
-    z-index: 1200;
-}
-
-/* Estilo especial para el área de Ingreso */
-.ingreso ul {
-    width: 100%;
-    height: 100%;
-}
-
-.ingreso > ul > li {
+    padding: 0 20px;
     height: 80px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative; /* ESTO ES CLAVE: Define de dónde cuelga el menú */
+    box-sizing: border-box;
+    transition: background 0.3s;
+    border-bottom: 3px solid #ffffff; 
 }
 
-/* Busca esta sección en tu CSS y actualízala */
-.ingreso ul li ul {
-    top: 100%;    /* Empuja el menú al borde inferior de la barra de 80px */
-    right: 0;     /* Lo alinea al borde derecho para que no se salga de la pantalla */
-    left: auto;
-    position: absolute;
+nav ul li a:hover {
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+/* Nivel 1: Despliegue hacia abajo (General) */
+nav ul li ul {
     display: none;
-    background-color: #ffffff;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.9); 
     min-width: 180px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    top: 80px; 
+    left: 0;
     z-index: 1100;
 }
 
-.ingreso a {
-    color: #fff;
+nav ul li:hover > ul {
+    display: block !important;
+}
+
+/* --- NIVEL 2: DESPLIEGUES LATERALES (Solo navegación central) --- */
+.navegacion li ul li ul {
+    left: 100%;    /* EL CAMBIO: 100% asegura que empiece justo donde termina el anterior */
+    margin-left: 0px; /* Un pequeño espacio extra para que no estén pegados piel con piel */
+    top: 2px;      
+    position: absolute;
+}
+
+.navegacion li ul li a {
+    width: 100%;
+    justify-content: center;
+    height: auto;
+    padding: 15px;
+    border-bottom: 2px solid #ffffff;
+    margin: 0;
+}
+
+/* --- AREA DE INGRESO (Vertical y Naranja) --- */
+.ingreso {
+    width: 15%;
+    height: 80px;
+    background: #ff9f43; 
+    display: flex;
+}
+
+.ingreso > ul {
+    width: 100%;
+}
+
+.ingreso > ul > li {
+    width: 100%;
+    height: 80px;
+}
+
+.ingreso > ul > li > a {
+    width: 100%;
+    justify-content: center;
+    border-bottom: 4px solid #ffffff;
+}
+
+.ingreso ul li ul {
+    top: 80px;    
+    right: 0;     
+    left: auto;   
+    background-color: #ff9f43; 
+    min-width: 100%; 
 }
 
 .ingreso ul li ul li a {
-    color: #5d4a44; /* Letra oscura en el desplegable de ingreso */
-}
-/* --- FIN NUEVA NAVEGACIÓN --- */
-
-.navegacion {
-    width: 65%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    align-items: center;
-}
-
-.navegacion a {
-    text-decoration: none;
-    color: #5d4a44;
-    font-weight: 700;
-    transition: color 0.3s;
-}
-
-.navegacion a:hover {
-    color: #ff9f43;
-}
-
-.ingreso {
-    width: 15%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #ff9f43; /* Botón llamativo */
-}
-
-.ingreso a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
+    color: #ffffff !important;
+    border-bottom: 2px solid #ffffff;
+    margin: 0; 
+    padding: 15px;
 }
 
 /* Header */
@@ -225,7 +189,8 @@ header {
     border-bottom: 5px solid #ffecd2;
 }
 
-/* Esto obliga al contenedor principal a permitir que los elementos bajen */
+/* --- NO TOCAR NADA DESDE AQUÍ HACIA ABAJO AUN... --- */
+
 main#portafolio {
     display: flex;
     flex-wrap: wrap; 
@@ -234,7 +199,7 @@ main#portafolio {
 }
 
 .div-porta {
-    width: calc(33.33% - 14px); /* Ajuste pequeño para que el gap no las empuje abajo */
+    width: calc(33.33% - 14px); 
     padding: 30px 20px;
     text-align: center;
     background: #fff;
@@ -245,21 +210,19 @@ main#portafolio {
     align-items: center;
 }
 
-/* Efecto Hover Amigable */
 .div-porta:hover {
     transform: translateY(-10px);
     background: #fffaf5;
     box-shadow: 0 10px 20px rgba(93, 74, 68, 0.05);
 }
 
-/* Imágenes Circulares */
 .circulo-img {
-    width: 140px; /* Tamaño optimizado según imagen previa */
+    width: 140px; 
     height: 140px;
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 20px;
-    border: 5px solid #ffecd2; /* Borde melocotón suave */
+    border: 5px solid #ffecd2; 
     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 
@@ -270,7 +233,6 @@ main#portafolio {
     display: block;
 }
 
-/* Tipografía de la Tarjeta */
 .div-porta h2 {
     color: #5d4a44;
     margin-bottom: 15px;
@@ -284,7 +246,6 @@ main#portafolio {
     margin-bottom: 20px;
 }
 
-/* Enlaces (Ver más / Volver) */
 .ver-mas {
     color: #ff9f43;
     text-decoration: none;
@@ -297,12 +258,11 @@ main#portafolio {
     color: #e67e22;
 }
 
-/* Esto selecciona el enlace 'Volver' y lo empuja a la derecha */
 main#portafolio .volver {
-    display: block;      /* Para que reconozca los márgenes */
-    width: auto;         /* Que solo ocupe lo que mide el texto */
-    margin-left: auto;   /* EL TRUCO: empuja el elemento a la derecha */
-    margin-top: 20px;    /* Separa el link de las tarjetas */
+    display: block;      
+    width: auto;          
+    margin-left: auto;    
+    margin-top: 20px;    
     text-decoration: none;
     color: #b5a49d;
     font-size: 0.8em;
@@ -312,7 +272,6 @@ main#portafolio .volver {
     color: #ff9f43;
 }
 
-/* Sección Quiénes Somos */
 #quienes-somos {
     display: flex;
     flex-direction: column;
@@ -322,10 +281,9 @@ main#portafolio .volver {
 .fila {
     display: flex;
     width: 100%;
-    min-height: 200px; /* Altura mínima para que respete el wireframe */
+    min-height: 200px; 
 }
 
-/* Columna de Texto (40%) */
 .col-ext-text {
     width: 40%;
     padding: 30px;
@@ -335,25 +293,22 @@ main#portafolio .volver {
     background-color: #fff;
 }
 
-/* Columna Central de la Imagen (20%) */
 .col-cen-img {
     width: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fffaf5; /* Fondo muy suave para resaltar el eje */
+    background-color: #fffaf5; 
 }
 
-/* Columna Vacía o con Botón (40%) */
 .col-ext-vacia {
     width: 40%;
     padding: 30px;
     display: flex;
-    align-items: flex-end; /* Alinea el "Volver" abajo */
+    align-items: flex-end; 
     justify-content: flex-end;
 }
 
-/* Estilo de los Círculos Pequeños */
 .circulo-img-small {
     width: 90px;
     height: 90px;
@@ -361,7 +316,7 @@ main#portafolio .volver {
     background-color: #ffecd2;
     border: 3px solid #fff;
     box-shadow: 0 4px 10px rgba(93, 74, 68, 0.1);
-    overflow: hidden; /* Esto es clave para que la imagen se corte en círculo */
+    overflow: hidden; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -370,11 +325,10 @@ main#portafolio .volver {
 .circulo-img-small img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Esto hace que la imagen llene el círculo sin estirarse */
+    object-fit: cover; 
     display: block;
 }
 
-/* Ajustes de Texto */
 .col-ext-text h3 {
     color: #e67e22;
     margin-bottom: 15px;
@@ -387,7 +341,6 @@ main#portafolio .volver {
     color: #5d4a44;
 }
 
-/* Link Volver en la esquina inferior */
 .volver {
     font-size: 0.8em;
     color: #b5a49d;
@@ -398,9 +351,7 @@ main#portafolio .volver {
 .volver:hover {
     color: #ff9f43;
 }
-.col-ext-vacia { width: 40%; padding: 40px; position: relative; }
 
-/* Contacto */
 section#contactenos {
     display: flex;
     padding: 40px 20px;
@@ -439,24 +390,24 @@ button {
 }
 
 .mapa-placeholder {
-    height: 250px; /* Un poco más de altura para que luzca mejor */
+    height: 250px; 
     background: #e9e9e9;
     border-radius: 20px;
     margin-bottom: 20px;
-    overflow: hidden; /* Corta las esquinas del mapa para que sean curvas */
-    border: 2px solid #ffecd2; /* Borde sutil a juego con el estilo */
+    overflow: hidden; 
+    border: 2px solid #ffecd2; 
 }
 
 .mapa-placeholder iframe {
     width: 100%;
     height: 100%;
     border: 0;
-    display: block; /* Elimina espacios extra abajo */
+    display: block; 
 }
 
 .social-circles {
     display: flex;
-    gap: 15px; /* Espacio entre los iconos */
+    gap: 15px; 
     margin-top: 20px;
 }
 
@@ -464,36 +415,27 @@ button {
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    background-color: #ffecd2; /* Color melocotón claro de fondo */
+    background-color: #ffecd2; 
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: all 0.3s ease; /* Transición suave */
+    transition: all 0.3s ease; 
     border: 2px solid #fff;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
-/* Efecto al pasar el mouse */
 .social-circles span:hover {
-    background-color: #ff9f43; /* Naranja vibrante al interactuar */
-    transform: scale(1.1); /* Se agranda un poquito */
+    background-color: #ff9f43; 
+    transform: scale(1.1); 
 }
 
-/* Si decides poner imágenes dentro de los span */
 .social-circles span img {
     width: 18px;
     height: 18px;
     opacity: 0.7;
 }
 
-.volver {
-    font-size: 0.8em;
-    color: #b5a49d;
-    text-decoration: none;
-}
-
-/* Footer */
 footer {
     display: flex;
     justify-content: space-between;
