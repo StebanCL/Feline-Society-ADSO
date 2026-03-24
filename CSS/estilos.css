@@ -163,6 +163,7 @@ nav ul li:hover > ul {
     width: 100%;
     justify-content: center;
     border-bottom: 4px solid #ffffff;
+    
 }
 
 .ingreso ul li ul {
@@ -174,10 +175,13 @@ nav ul li:hover > ul {
 }
 
 .ingreso ul li ul li a {
+    display: flex;         /* Cambia de inline a flex */
+    width: 100%;           /* Estira el enlace al 100% del menú */
+    justify-content: center;
+    padding: 15px;         /* Espacio parejo */
     color: #ffffff !important;
     border-bottom: 2px solid #ffffff;
-    margin: 0; 
-    padding: 15px;
+    margin: 0;             /* IMPORTANTE: Pon esto en 0 para eliminar el hueco */
 }
 
 /* Header */
