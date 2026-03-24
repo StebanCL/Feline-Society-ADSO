@@ -1,73 +1,78 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
 
+/* --- BASE --- */
 body {
-    /* Mantenemos Dancing Script si lo prefieres para títulos, 
-       pero aplicamos la base de Feline Society */
     font-family: 'Quicksand', sans-serif;
     background-color: #fff9f4; 
     background-image: url('../img/CATBG.jpg');
     background-size: cover;
     background-attachment: fixed;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 h1 {
     font-family: 'Quicksand', sans-serif;
     text-align: center;
     font-size: 3em;
-    color: #e67e22; /* Naranja vibrante de Feline */
+    color: #e67e22; 
     font-weight: 700;
-    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
 .row {
-    background-color: #ffffff; /* Fondo blanco sólido para el formulario */
-    background-image: url('../PROYECTO_A/IMG/ICON.jpg'); /* Imagen de fondo sutil o logo */
-    background-size: 50px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                      url('../IMG/BGINSIDECAT.jpg'); 
+    
+    background-size: cover;       /* Importante: estira la imagen */
+    background-position: center;  /* Centra la cara del gato */
     background-repeat: no-repeat;
-    background-position: top right;
+    
     width: 420px;
-    height: auto; /* Auto para que no se corte el contenido */
-    min-height: 450px;
-    padding: 30px;
+    min-height: 480px; /* Un poco más alto para que luzca la imagen */
+    padding: 40px;
     margin: 50px auto;
-    border-radius: 30px; /* Bordes redondeados como el contenedor principal */
-    box-shadow: 0 10px 30px rgba(93, 74, 68, 0.1);
-    border: 1px solid #f2e5d9;
+    border-radius: 30px; 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 236, 210, 0.2);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.form-p {
-    padding: 5px;
-}
-
+/* --- ESTO HACE QUE LAS LÍNEAS SE VEAN PERFECTAS --- */
 .text {
     display: block;
-    width: 90%;
-    border: none;
-    border-bottom: solid 2px #ffecd2; /* Línea melocotón */
-    padding: 1em;
-    font-size: 1em;
-    font-family: 'Quicksand', sans-serif;
-    color: #5d4a44; /* Marrón oscuro suave */
-    margin: 25px 0 0;
-    margin-left: 8px;
-    outline: none;
+    width: 100%; /* Obligatorio para que la línea blanca cruce todo el form */
     background-color: transparent;
-    transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+    border: none;
+    border-bottom: 2px solid #ffecd2; /* Tu línea melocotón */
+    padding: 15px 5px;
+    margin-top: 25px;
+    color: #ffffff; /* Texto blanco para el fondo oscuro */
+    font-family: 'Quicksand', sans-serif;
+    outline: none;
+    transition: 0.3s all;
 }
 
-/* Efecto al hacer foco en el input */
 .text:focus {
-    border-bottom: solid 2px #ff9f43;
+    border-bottom: 2px solid #ff9f43; /* Naranja cuando escribes */
 }
 
+/* Placeholders claros para el fondo oscuro */
 ::-webkit-input-placeholder {
-    color: #b5a49d; /* Grisáceo cálido */
+    color: rgba(255, 255, 255, 0.7);
     font-family: 'Quicksand', sans-serif;
 }
 
+/* --- BOTÓN --- */
 input[type="submit"] {
     font-size: 1.1em;
-    background-color: #ff9f43; /* Naranja botón principal */
+    background-color: #ff9f43; 
     color: #fff;
     font-family: 'Quicksand', sans-serif;
     font-weight: 700;
@@ -75,8 +80,8 @@ input[type="submit"] {
     height: 50px;
     outline: none;
     border: none;
-    border-radius: 15px; /* Botón redondeado */
-    margin: 3em 0;
+    border-radius: 15px; 
+    margin: 3em 0 1.5em; /* Ajuste de margen */
     transition: 0.5s all;
     text-align: center;
     letter-spacing: 1px;
@@ -84,26 +89,29 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #5d4a44; /* Cambia al marrón oscuro al pasar el mouse */
-    transform: translateY(-5px); /* Salta un poquito hacia arriba */
+    background-color: #5d4a44; 
+    transform: translateY(-5px);
 }
 
+/* --- ENLACES Y TEXTOS --- */
 .form-p {
     margin-top: 5px;
     font-size: 0.9em;
-    color: #7a6a64;
+    color: #ffffff; /* Texto blanco para legibilidad */
     letter-spacing: 1px;
     text-align: center;
 }
 
-.form-p a {
+.form-p a, a[href="../index.html"] {
     color: #ff9f43;
     font-weight: 700;
     text-decoration: none;
     transition: .5s all;
+    display: block;
+    margin-top: 10px;
 }
 
-.form-p a:hover {
+.form-p a:hover, a[href="../index.html"]:hover {
     color: #e67e22;
     text-decoration: underline;
 }
